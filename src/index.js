@@ -1,17 +1,20 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+function click_abc(){
+
+  let a = document.getElementById('myimage');
+  if(!a)
+    return;
+
+  if(a.src !== require('./bulbon.gif'))
+    a.src = require("./bulbon.gif");
+  else
+    a.src = require("./bulboff.gif");
+}
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <img id="myimage" onClick={click_abc} src={require("./bulboff.gif")} width="100" height="180" />
+  
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
